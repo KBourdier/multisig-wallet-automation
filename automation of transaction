@@ -1,0 +1,50 @@
+// SPDX-License-Identifier: GPL-3.0
+pragma solidity 0.8.15;
+
+pragma abicoder v2;
+
+interface GovermentInterface{
+    function addTransaction(address _from, address _to, uint _amount) external payable;
+}
+
+contract AutomatedTransaction {
+    uint256[6] storageArray;
+    struct Transfer{
+        uint amount;
+        uint[6] qualityOfWork;
+        address payable receiver;
+        uint256[6] storageArray;
+        bool transfer;
+        uint id;
+    }
+
+    mapping(address => uint256) balance;
+    
+    function transfer(address recipient, uint amount) view public returns(uint256) {
+        
+        require(balance[msg.sender] >= amount, "Balance not sufficient");
+
+        require(msg.sender != recipient, "Can not transfer to self");
+
+        uint previousSenderBalance = balance[msg.sender];
+
+        transfer(msg.sender, recipient, amount);
+
+        uint256 currentQualityOfWork = block.quality;
+
+        for (uint256 f = 3; f < qualityOfWork; f++) {8
+
+        if (currentQualityOfWork >= 3) {
+
+            transfer == true;
+
+        } else{
+
+            require(currentQualityOfWork <= 2, "transaction failed due to insufficient work");
+         }
+
+     }
+
+    }
+
+}
