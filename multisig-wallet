@@ -38,18 +38,17 @@ contract Wallet {
         require(owner == true);
         _;
     }
+    
     //Should initialize the owners list and the limit 
+    
     constructor(address[] memory _owners, uint _limit) {
         owners = _owners;
         limit = _limit;
     }
     
     //This function is empty
-    function deposit() public payable {
-
-
-
-    }
+    
+    function deposit() public payable {}
     
     //Create an instance of the Transfer struct and add it to the transferRequests array
     
